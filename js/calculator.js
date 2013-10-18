@@ -9,7 +9,6 @@ controller('calculator', function (
 
     self.maxDigits = 8;
 
-    $scope.screen = '0';
     self.pressNum = function (num) {
         if ($scope.screen === '0') {
             $scope.screen = '';    
@@ -18,5 +17,11 @@ controller('calculator', function (
         if ($scope.screen.length < 12) {
             $scope.screen += num;
         }
-    }
+    };
+
+    self.clearScreen = function () {
+        $scope.screen = '0';
+    };
+
+    self.clearScreen();
 });
