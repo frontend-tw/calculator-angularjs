@@ -23,5 +23,18 @@ controller('calculator', function (
         $scope.screen = '0';
     };
 
+    self.changeSign = function () {
+        if ($scope.screen === '0') {
+            return false;
+        }
+
+        var signPos = $scope.screen.indexOf('-');
+        if (signPos === -1) {
+            $scope.screen = '-' + $scope.screen;
+        } else {
+            $scope.screen = '' + Math.abs($scope.screen);
+        }
+    }
+
     self.clearScreen();
 });
