@@ -5,9 +5,12 @@ angular.module('Calculator2', []).
 controller('calculator', function (
     $scope
 ) {
-    $scope.display = '0';
-
-    this.pressNum = function (num) {
-        $scope.display = num;
+    var self = this;
+    $scope.screen = '0';
+    self.pressNum = function (num) {
+        if ($scope.screen === '0') {
+            $scope.screen = '';    
+        }
+        $scope.screen += num;
     }
 });
