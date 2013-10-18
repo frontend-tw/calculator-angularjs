@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="Calculator2">
 <head>
     <meta charset="utf-8">
     <title>簡易計算機</title>
@@ -9,8 +9,8 @@
 </head>
 <body>
 <div class="container">
-    <div id="calculator">
-        <div id="screen" class="well">0</div>
+    <div id="calculator" ng-controller="calculator as cal">
+        <div id="screen" class="well">{{display}}</div>
         <div id="keyboard">
             <table>
                 <tr>
@@ -26,21 +26,21 @@
                     <td><button class="btn">×</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">7</button></td>
-                    <td><button class="btn">8</button></td>
-                    <td><button class="btn">9</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(7)">7</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(8)">8</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(9)">9</button></td>
                     <td><button class="btn">-</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">4</button></td>
-                    <td><button class="btn">5</button></td>
-                    <td><button class="btn">6</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(4)">4</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(5)">5</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(6)">6</button></td>
                     <td><button class="btn">+</button></td>
                 </tr>
                 <tr>
-                    <td><button class="btn">1</button></td>
-                    <td><button class="btn">2</button></td>
-                    <td><button class="btn">3</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(1)">1</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(2)">2</button></td>
+                    <td><button class="btn" ng-click="cal.pressNum(3)">3</button></td>
                     <td rowspan="2"><button class="btn btn-tall">=</button></td>
                 </tr>
                 <tr>
