@@ -8,19 +8,30 @@ controller('calculator', function (
     var self = this;
 
     self.maxDigits = 8;
+    self.dotMode = false;
+    self.hasDot = false;
 
     self.pressNum = function (num) {
         if ($scope.screen === '0') {
-            $scope.screen = '';    
+            if (!self.dotMode) {
+                $scope.screen = '';
+            }
         }
 
         if ($scope.screen.length < 12) {
+            if (self.dotMode) {
+                $scope.screen += '.';
+            }
             $scope.screen += num;
         }
+
+        self.dotMode = false;
     };
 
     self.clearScreen = function () {
         $scope.screen = '0';
+        self.dotMode = false;
+        self.hasDot = false;
     };
 
     self.changeSign = function () {
@@ -34,6 +45,13 @@ controller('calculator', function (
         } else {
             $scope.screen = '' + Math.abs($scope.screen);
         }
+    }
+
+    self.addDot = function () {
+        if (!self.hasDot) {       
+            self.dotMode = true;        
+        }        
+        self.hasDot = true;
     }
 
     self.clearScreen();
